@@ -12,32 +12,33 @@ from ClientConnectionBox import client_connect_box
 import pandas as pd
 
 
-conn = psycopg2.connect(host="localhost", dbname="ftpdb", user="postgres",
-                        password="Admin123!!!", port=5432)
-cur = conn.cursor()
-query = '''
-CREATE TABLE IF NOT EXISTS transactions (
-protocol VARCHAR(255) NOT NULL,
-transaction_type VARCHAR(255) NOT NULL,
-source_path VARCHAR(255) NOT NULL,
-dest_path VARCHAR(255) NOT NULL,
-time VARCHAR(255) NOT NULL
-)'''
-# query2 = '''
-# INSERT INTO transactions (transaction_type, source_path, dest_path, time)
-# VALUES('test','test', 'test', 'test')
-# '''
-new_query = '''
-SELECT * FROM transactions'''
-
-cur.execute(new_query)
-
-results = cur.fetchall()
-df = pd.DataFrame(results, columns=[desc[0] for desc in cur.description])
-df.to_csv("your_output_file.csv", index=False)
-
-cur.close()
-conn.close()
+# this file is just used for testing and debugging the app
+# conn = psycopg2.connect(host="localhost", dbname="ftpdb", user="postgres",
+#                         password="Admin123!!!", port=5432)
+# cur = conn.cursor()
+# query = '''
+# CREATE TABLE IF NOT EXISTS transactions (
+# protocol VARCHAR(255) NOT NULL,
+# transaction_type VARCHAR(255) NOT NULL,
+# source_path VARCHAR(255) NOT NULL,
+# dest_path VARCHAR(255) NOT NULL,
+# time VARCHAR(255) NOT NULL
+# )'''
+# # query2 = '''
+# # INSERT INTO transactions (transaction_type, source_path, dest_path, time)
+# # VALUES('test','test', 'test', 'test')
+# # '''
+# new_query = '''
+# SELECT * FROM transactions'''
+#
+# cur.execute(new_query)
+#
+# results = cur.fetchall()
+# df = pd.DataFrame(results, columns=[desc[0] for desc in cur.description])
+# df.to_csv("your_output_file.csv", index=False)
+#
+# cur.close()
+# conn.close()
 
 
 # ssh_client = paramiko.SSHClient()
