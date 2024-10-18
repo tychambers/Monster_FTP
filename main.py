@@ -9,6 +9,7 @@ from FTP import Client
 import datetime
 from MessageBox import pop_up
 import pandas as pd
+from path_box import PathBox
 
 # get time
 time = datetime.datetime.now()
@@ -31,10 +32,8 @@ title_label.grid(row=0, column=2, columnspan=3, sticky="NWS", pady=2)
 
 def show_transactions():
     if sql_box.is_enabled:
-        sql_box.cur.execute("SELECT * FROM transactions")
-        results = sql_box.cur.fetchall()
-        df = pd.DataFrame(results, columns=[desc[0] for desc in cur.description])
-        df.to_csv("transactions.csv", index=False)
+        pb = PathBox()
+        pb.path_box(sql_box)
     else:
         pop_up("Not Connected to a DB, check DB settings")
 

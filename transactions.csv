@@ -1,0 +1,4 @@
+protocol,transaction_type,source_path,dest_path,time
+FTP,Download,C:/test/test4.txt,/test_folder,2024-10-18 14:08:56.804860
+SFTP,Upload,C:/test/test1.txt,/test_folder/new/test1.txt,2024-10-18 14:29:26.495448
+SFTP,Upload,C:/web development projects/smile2.jpg,/smile2.jpg,2024-10-18 17:08:29.202809
